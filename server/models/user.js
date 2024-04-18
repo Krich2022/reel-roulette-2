@@ -1,12 +1,27 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
-const userSchema = new Schema({
-  username: {
+
+const movieSchema = new Schema({
+  title: {
     type: String,
     required: true,
-    unique: true,
-    trim: true,
   },
+  imdb_id: {
+    type: String,
+    required: true,
+  },
+  saved: {
+    type: Boolean,
+  },
+  banned: {
+    type: Boolean,
+  },
+  movie_poster: {
+    type: String,
+  },
+});
+
+const userSchema = new Schema({
   email: {
     type: String,
     required: true,
@@ -18,12 +33,10 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  characters: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Character",
-    },
-  ],
+  services: {
+    type: [String],
+  },
+  saved_movies: [movieSchema],
 });
 
 userSchema.pre("save", async function (next) {

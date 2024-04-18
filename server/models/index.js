@@ -1,3 +1,2 @@
-const User = require('./user');
-const Character = require('./character');
-module.exports = { User, Character };
+const User = require("./user");
+module.exports = { User };
