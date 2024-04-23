@@ -30,7 +30,9 @@ function Signup(props) {
   };
 
   return (
-    <div className="d-flex justify-content-center">
+    <div
+      className="d-flex justify-content-center flex-column"
+      style={{ maxWidth: "780px" }}>
       <h2 className="pb-3">Set Up Your Account</h2>
       <Form>
         <div>
