@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 
 import App from "./App.jsx";
 import "./index.css";
+import "./App.css";
 import User from "./pages/user/user.jsx";
 import Movie from "./pages/movie/movie.jsx";
 import Login from "./pages/login-signup/login.jsx";
