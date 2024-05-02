@@ -1,7 +1,7 @@
 import { Nav, Navbar, Container, Offcanvas } from "react-bootstrap";
-import auth from "../../utils/auth";
+import auth from "../utils/auth";
 
-function HeaderNav() {
+export default function HeaderNav() {
   const isLoggedIn = auth.loggedIn();
 
   return (
@@ -23,27 +23,27 @@ function HeaderNav() {
                 id={`offcanvasNavbarLabel`}
                 className="custom-offcanvas-header"
               >
-                Character Quiver
+                Reel Roulette
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body className="offcanvas-body-align">
               <Nav>
                 {isLoggedIn ? (
-                  <Nav.Link href="/dashboard" className="text-color">
-                    Dashboard
+                  <Nav.Link href="/user" className="text-color">
+                    Movie
                   </Nav.Link>
                 ) : (
-                  <Nav.Link href="/login" className="text-color">
-                    Dashboard
+                  <Nav.Link href="/movie" className="text-color">
+                    Movie
                   </Nav.Link>
                 )}
                 {isLoggedIn ? (
-                  <Nav.Link href="/create" className="text-color">
-                    Create a Character
+                  <Nav.Link href="/user" className="text-color">
+                    User
                   </Nav.Link>
                 ) : (
-                  <Nav.Link href="/login" className="text-color">
-                    Create a Character
+                  <Nav.Link href="/user" className="text-color">
+                    User
                   </Nav.Link>
                 )}
                 {isLoggedIn ? (
@@ -55,7 +55,7 @@ function HeaderNav() {
                     Logout
                   </Nav.Link>
                 ) : (
-                  <Nav.Link href="/login" className="text-color">
+                  <Nav.Link href="/" className="text-color">
                     Login / Sign Up
                   </Nav.Link>
                 )}
@@ -67,5 +67,3 @@ function HeaderNav() {
     </>
   );
 }
-
-export default HeaderNav;

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Form, Alert } from "react-bootstrap";
+import { Button, Form, Alert, Row } from "react-bootstrap";
 import { useMutation } from "@apollo/client";
 import { LOGIN_MUTATION } from "../../utils/mutations";
 import { loginSuccess } from "../../utils/actions";
@@ -42,46 +42,47 @@ function Login(props) {
   };
 
   return (
-    <>
-      <div
-        direction="vertical"
-        className="container-background p-5 enable-rounded text-color login-width"
-      >
-        <h2 className="pb-3">Login to your account</h2>
+    <div className="d-flex flex-column align-items-center">
+      <Form className="custom-form text-white background">
+        <h2 className="p-3">Login to your account</h2>
         {loginFailed ? (
           <Alert key="danger" variant="danger">
-            Username or Password is incorrect
+            Email or Password is incorrect
           </Alert>
         ) : (
           <></>
         )}
-        <form>
-          <Form.Control
-            type="input"
-            id="email"
-            name="email"
-            placeholder="email"
-            className="mb-4 input-container"
-            onChange={handleChange}
-          />
-          <Form.Control
-            type="password"
-            id="password"
-            name="password"
-            placeholder="password"
-            className="mb-4 input-container"
-            onChange={handleChange}
-          />
+        <div className="d-flex flex-column align-items-center">
+          <Row>
+            <Form.Control
+              type="input"
+              id="email"
+              name="email"
+              placeholder="email"
+              className="mb-4 input-container"
+              onChange={handleChange}
+            />
+          </Row>
+          <Row>
+            <Form.Control
+              type="password"
+              id="password"
+              name="password"
+              placeholder="password"
+              className="mb-4 input-container"
+              onChange={handleChange}
+            />
+          </Row>
           <Button className="mb-3 button-container" onClick={handleSubmit}>
             Login
           </Button>
-        </form>
+        </div>
         <p className="">Don't have an account?</p>
         <Button href="/signup" className="mb-3 button-container">
           Create an Account
         </Button>
-      </div>
-    </>
+      </Form>
+    </div>
   );
 }
 
