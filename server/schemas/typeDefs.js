@@ -34,6 +34,6 @@ type Mutation {
   addMovie(title: String!, imdb_id: String!, saved: Boolean, banned: Boolean, movie_poster: String): Movie
   updateMovie(imdb_id: String!, saved: Boolean, banned: Boolean): Movie
   deleteMovie(imdb_id: String!): Movie
-`;
+}`;
 
 module.exports = typeDefs;
