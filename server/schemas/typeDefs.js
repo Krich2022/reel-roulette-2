@@ -8,11 +8,16 @@ type Movie {
   movie_poster: String
 }
 
+type Service {
+  id: String!
+  title: String!
+}
+
 type User {
   _id: ID!
   email: String!
   password: String!
-  services: [String]
+  services: [Service] 
   saved_movies: [Movie]
 }
 
@@ -36,8 +41,13 @@ type Query {
   getMovieList(services: [String!], genres:[String!]):MovieResult
 }
 
+input ServiceInput {
+  id: String!
+  title: String!
+}
+
 type Mutation {
-  addUser(email: String!, password: String!): Auth
+  addUser(email: String!, password: String!, services:[ServiceInput]): Auth
   login(email: String!, password: String!): Auth
   addMovie(title: String!, imdb_id: String!, saved: Boolean, banned: Boolean, movie_poster: String): Movie
   updateMovie(imdb_id: String!, saved: Boolean, banned: Boolean): Movie

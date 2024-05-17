@@ -39,6 +39,7 @@ function Signup(props) {
         email: FormState.email,
         password: FormState.password,
         username: FormState.username,
+        services: ServicesState,
       },
     });
     const token = mutationResponse.data.addUser.token;

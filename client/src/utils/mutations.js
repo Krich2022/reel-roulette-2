@@ -14,9 +14,15 @@ export const LOGIN_MUTATION = gql`
   }
 `;
 
+// Service Input Type
+
 // Add user mutation
 export const ADD_USER_MUTATION = gql`
-  mutation AddUser($email: String!, $password: String!, $services: [String]!) {
+  mutation AddUser(
+    $email: String!
+    $password: String!
+    $services: [ServiceInput]
+  ) {
     addUser(email: $email, password: $password, services: $services) {
       token
       user {

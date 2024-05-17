@@ -12,7 +12,12 @@ export default function StreamingChecklist({ list, click }) {
                 type="checkbox"
                 label={choice.title}
                 id={choice.id}
-                onChange={(e) => click(choice.id, e.target.checked)}
+                onChange={(e) =>
+                  click(
+                    { id: choice.id, title: choice.title },
+                    e.target.checked
+                  )
+                }
               />
             </Col>
           );
