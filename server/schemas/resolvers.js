@@ -1,5 +1,6 @@
 const { User } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
+const API_KEY = process.env.API_KEY;
 
 const resolvers = {
   Query: {
@@ -14,6 +15,35 @@ const resolvers = {
     },
     movie: async (parent, { imdb_id }) => {
       return Movie.findOne({ imdb_id });
+    },
+    getMovieList: async (parent, { services, genres }) => {
+      const url = `https://streaming-availability.p.rapidapi.com/search/filters?services=${services.join(
+        ","
+      )}&country=us&output_language=en&order_by=original_title&genres=${genres.join(
+        ","
+      )}&genres_relation=and&show_type=all`;
+      const options = {
+        method: "GET",
+        headers: {
+          "X-RapidAPI-Key": API_KEY,
+          "X-RapidAPI-Host": "streaming-availability.p.rapidapi.com",
+        },
+      };
+
+      try {
+        const response = await fetch(url, options);
+        if (!response.ok) {
+          throw new Error(`API request failed with status ${response.status}`);
+        }
+        const result = await response.json();
+        if (!result || !result.results) {
+          throw new Error(`invalid data receivied from API ${result}`);
+        }
+
+        return result;
+      } catch (error) {
+        console.error(error);
+      }
     },
   },
 

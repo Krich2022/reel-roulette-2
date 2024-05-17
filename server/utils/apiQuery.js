@@ -19,16 +19,6 @@ const genres = {
   war: 10752,
 };
 
-const options = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Key": "2ac69e0632mshb00a4ba8e266c71p159332jsn490d9476e71d",
-    "X-RapidAPI-Host": "streaming-availability.p.rapidapi.com",
-  },
-};
-let url =
-  "https://streaming-availability.p.rapidapi.com/search/filters?services=";
-
 let orderBy = [
   "order_by=popularity_alltime",
   "order_by=popularity_1year",
@@ -42,3 +32,51 @@ if (descending === 0) {
 } else {
   descending = false;
 }
+
+let apiGenre = {
+  results: [
+    null,
+    "Action",
+    "Adult",
+    "Adventure",
+    "Animation",
+    "Biography",
+    "Comedy",
+    "Crime",
+    "Documentary",
+    "Drama",
+    "Family",
+    "Fantasy",
+    "Film-Noir",
+    "Game-Show",
+    "History",
+    "Horror",
+    "Music",
+    "Musical",
+    "Mystery",
+    "News",
+    "Reality-TV",
+    "Romance",
+    "Sci-Fi",
+    "Short",
+    "Sport",
+    "Talk-Show",
+    "Thriller",
+    "War",
+    "Western",
+  ],
+};
+
+let lists = {
+  results: [
+    "most_pop_movies",
+    "most_pop_series",
+    "top_boxoffice_200",
+    "top_boxoffice_last_weekend_10",
+    "top_rated_250",
+    "top_rated_english_250",
+    "top_rated_lowest_100",
+    "top_rated_series_250",
+    "titles",
+  ],
+};

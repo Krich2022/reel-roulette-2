@@ -21,11 +21,19 @@ type Auth {
   user: User
 }
 
+
+type MovieResult {
+  title: String
+  overview: String
+  imdbId: String
+}
+
 type Query {
   users: [User]
   user(email: String!): User
   movies: [Movie]
   movie(imdb_id: String!): Movie
+  getMovieList(services: [String!], genres:[String!]):MovieResult
 }
 
 type Mutation {
