@@ -9,20 +9,18 @@ export default function HeaderNav() {
       <Navbar expand="md" className="header-nav sticky-top w-100 mb-4">
         <Container>
           <Navbar.Brand href="/" className="text-color">
-            Character Quiver
+            Reel Roulette
           </Navbar.Brand>
           <Navbar.Toggle aria-controls={`offcanvasNavbar`} />
           <Navbar.Offcanvas
             id={`offcanvasNavbar`}
             aria-labelledby={`offcanvasNavbarLabel`}
             placement="end"
-            className="offcanvas-background"
-          >
+            className="offcanvas-background">
             <Offcanvas.Header closeButton>
               <Offcanvas.Title
                 id={`offcanvasNavbarLabel`}
-                className="custom-offcanvas-header"
-              >
+                className="custom-offcanvas-header">
                 Reel Roulette
               </Offcanvas.Title>
             </Offcanvas.Header>
@@ -50,8 +48,7 @@ export default function HeaderNav() {
                   <Nav.Link
                     className="text-color"
                     href="/logout"
-                    onClick={() => auth.logout()}
-                  >
+                    onClick={() => auth.logout()}>
                     Logout
                   </Nav.Link>
                 ) : (
